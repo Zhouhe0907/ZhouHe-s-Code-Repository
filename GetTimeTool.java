@@ -1,5 +1,5 @@
 /*
- *自写关于利用系统时间获取当前时间代码
+ *利用系统时间获取当前时间代码（工具类）
  *@zhouHe
  *每一个不曾起舞的日子都是对生命的辜负
  */
@@ -32,8 +32,8 @@ public class GetTimeTool
                (currentHour>=12 && currentHour<14) ? "中午" : (currentHour>=14 && currentHour<18) ?"下午" :
                (currentHour == 18) ? "傍晚" : (currentHour>=19 && currentHour<=22) ? "晚上" :
                (currentHour>22 || currentHour<=2) ? "深夜" : "凌晨";
-        if(currentHour>= 13)
-            currentHour -= 12;
+        if(currentHour>= 13)  
+            currentHour -= 12;//转化成12小时制
 
 
         //------------得到当前日：currentDay------------------------------
