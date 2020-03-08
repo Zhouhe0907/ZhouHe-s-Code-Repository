@@ -5,7 +5,7 @@
  *每一个不曾起舞的日子都是对生命的辜负
  */
 
-public class GetTimeTool
+public class ElegantGetTime
 {
     static void getTime()
     {
