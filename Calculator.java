@@ -2,7 +2,7 @@
  *add方法可当成一个模版，substract、divide、multiply等操作与此方法仅有微小差别
  */
 
-public class CountTool 
+public class Calculator
 {
     public static double add(double d1, double d2, int scale)//scale:小数位数
     {
