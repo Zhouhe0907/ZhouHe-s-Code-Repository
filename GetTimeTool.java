@@ -1,10 +1,13 @@
-package Homework09;
+/*
+ *自写关于利用系统时间获取当前时间代码
+ *@zhouHe
+ *每一个不曾起舞的日子都是对生命的辜负
+ */
 
 public class GetTimeTool
 {
     static void getTime()
     {
-        //自写得到时间的代码
         long totalMiniSecond = System.currentTimeMillis() ;  //totalMiniSecond:总微秒
         long totalSecond = totalMiniSecond / 1000 ; //totalSecond:总秒
         long totalMinute = totalSecond / 60;       //totalMinute:总分钟
