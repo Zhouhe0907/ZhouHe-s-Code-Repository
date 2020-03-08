@@ -1,7 +1,8 @@
+//这串代码作为工具类实现对输入值的进行四舍五入并保留相应的小数位数
+
 public class CountTool 
 {
-    //-----------ADD-----------
-    public static double add(double d1, double d2, int scale)
+    public static double add(double d1, double d2, int scale)//scale:小数位数
     {
         //用d1 = 1, d2 = 0.1235 , scale = 3举例
         int flag = scale; //记录小数位数为while循环退出的条件
