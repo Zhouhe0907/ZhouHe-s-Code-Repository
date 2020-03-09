@@ -2,7 +2,9 @@
  *利用系统时间获取当前时间代码（工具类）
  *@zhouHe
  *感谢陈震晗学长和吴少强老师的指导
+ *这是那么多代码里面最喜欢的一串；生活应该是优雅的，代码亦应如此
  *每一个不曾起舞的日子都是对生命的辜负
+ *
  */
 
 import java.util.Random;
@@ -98,6 +100,7 @@ public class Test
 
 }
 
+//----------是这一段代码的让我感受到了编程的优雅----------
 class TheBeauty
 {
     static void printPoem()
