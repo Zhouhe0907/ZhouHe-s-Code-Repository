@@ -10,7 +10,7 @@ public class MoneyChangeSystem {
 
         int oneYuan , fiveYuan , tenYuan , twentyYuan , fiftyYuan ,hundredYuan,fiveJiao , oneJiao;
         float cost , change , payment , repay = 0;
-        //cost:价格   change:应找零   payment：已支付金额  repay：支付金额不够再次支付的金额
+        //cost:应付金额   change:应找零   payment：已支付金额  repay：支付金额不够再次支付的金额
         System.out.println("欢迎使用金正大超市自助找零系统" +
                 "\n-------------------------");//问候语
 
