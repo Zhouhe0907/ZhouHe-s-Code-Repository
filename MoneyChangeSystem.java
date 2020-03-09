@@ -9,7 +9,7 @@ public class MoneyChangeSystem {
         float cost , change , payment , repay;
         //cost:价格   change:应找零   payment：已支付金额  repay：支付金额不够再次支付的金额
         System.out.println("欢迎使用金正大超市自助找零系统" +
-                           "\n-------------------------");//问候语
+                "\n-------------------------");//问候语
 
         while(true)//把操作放在一直判断为true的循环里便于进行连续操作（也可以写一个退出方式）
         {
@@ -22,9 +22,9 @@ public class MoneyChangeSystem {
                 float recost = sc.nextFloat();//再次从键盘获取数据
                 cost = recost; //cost=新获得的数据
                 if(!MoneyChangeSystem.LeaglOrNot(cost))//再次调用LeaglOrNot判断cost是否合法,合法的话方法返回值是【false】
-                                                    //如果为false是不会进行if里面的操作的，所以又加了一个'！'，判断由false变成了true
+                    //如果为false是不会进行if里面的操作的，所以又加了一个'！'，判断由false变成了true
                     break;                          //if（）语句判断为true，进行if里面的代码，触发break；跳出循环
-                                                    //假如不合法LeaglOrNot方法返回的为false，跳过
+                //假如不合法LeaglOrNot方法返回的为false，跳过
             }
 
             System.out.print("请输入顾客实付金额：");
@@ -52,7 +52,7 @@ public class MoneyChangeSystem {
 
             //---------------找零算法核心：拿整数12346.6为例----------------
             int integer = (int)change;//integer用来存储整数部分 原理：（int）强制把float类型的change转化为int类型，丢失小数点后的数据
-                                                                                       // 即所谓的丢失精度，这样就得到了整数部分
+            // 即所谓的丢失精度，这样就得到了整数部分
 
             hundredYuan = integer/100;// 12346/100 = 123   hundredYuan = 123 (丢失精度的原理)
 
@@ -71,10 +71,19 @@ public class MoneyChangeSystem {
             fiveJiao = index / 5;//fiveJiao = 1
             oneJiao = index - 5*fiveJiao;//oneJiao = 1
 
-            //------------输出，其实还可以再根据是否为'0'进行选择性输出----------
-            System.out.println("找零理论最合适方案 100元：" + hundredYuan + "  50元：" + fiftyYuan
-                    + "  20元：" + twentyYuan + "  10元：" + tenYuan + "  5元：" + fiveYuan
-                    + "  1元：" + oneYuan + "  5角：" + fiveJiao + "  1角：" + oneJiao + "\n");
+            //-----------输出，其实还可以在根据为'0'进行选择进行输出----------
+            String[] yuanAndJiao = {"¥100：","  ¥50：","  ¥20:","  ¥10：","  ¥5：","  ¥1：","  ¥0.5","  $0.1："};
+
+            int[] cout = {hundredYuan,fiftyYuan,twentyYuan,tenYuan,fiveYuan,oneYuan,fiveJiao,oneJiao};
+
+            System.out.print("找零理论最合适方案 ");
+            for(int i = 0; i < 8;i++)
+            {
+                if(cout[i]!=0)
+                    System.out.print(yuanAndJiao[i] + cout[i] );
+            }
+
+            System.out.println("\n");
         }
 
     }
@@ -88,8 +97,8 @@ public class MoneyChangeSystem {
         int test = (int)(toBeJudged * 10);//拿12.334为例 （int）12.334*10 = 123：即把float类型的数转为整数，小数点后的0.334会丢失
         toBeJudged *= 10;  //float类型的 12.334*10 = 123.34在计算时不丢失小数点之后的0.34
         return ( (toBeJudged - test > 0) ); //toBeJudged - test = 123.34 - 123 = 0.34 > 0
-                                          // (toBeJudged - test>0判断为ture),即返回的值是true，
-                                        // 程序中的while（）括号中条件判断为真，执行while循环里的代码
+        // (toBeJudged - test>0判断为ture),即返回的值是true，
+        // 程序中的while（）括号中条件判断为真，执行while循环里的代码
     }
 
 }
