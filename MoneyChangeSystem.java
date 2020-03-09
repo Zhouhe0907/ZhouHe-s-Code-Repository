@@ -1,9 +1,8 @@
-
-import java.util.Scanner;
 /*
  *@ZhouHe
  *和朱思名一起写代码的纪念
  */
+import java.util.Scanner;
 
 public class MoneyChangeSystem {
     public static void main(String[] args) {
