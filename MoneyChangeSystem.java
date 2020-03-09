@@ -1,12 +1,15 @@
 
 import java.util.Scanner;
-
+/*
+ *@ZhouHe
+ *和朱思名一起写代码的纪念
+ */
 public class MoneyChangeSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);   //从键盘获取内容的方式
 
         int oneYuan , fiveYuan , tenYuan , twentyYuan , fiftyYuan ,hundredYuan,fiveJiao , oneJiao;
-        float cost , change , payment , repay;
+        float cost , change , payment , repay = 0;
         //cost:价格   change:应找零   payment：已支付金额  repay：支付金额不够再次支付的金额
         System.out.println("欢迎使用金正大超市自助找零系统" +
                 "\n-------------------------");//问候语
@@ -40,11 +43,23 @@ public class MoneyChangeSystem {
             }
 
             //判断所付金额是否大于应付金额，当实付金额大于等于应付金额时跳出循环，一开始就大于等于就忽略此循环
+            boolean leagal = true;
             while(payment < cost)
             {
-                System.out.print("顾客支付金额不足！再多支付：");
-                repay = sc.nextFloat();
-                payment += repay;
+                if(leagal) {
+                    System.out.print("顾客支付金额不足！再多支付：");
+                    repay = sc.nextFloat();
+                }
+
+                if(!MoneyChangeSystem.LeaglOrNot(repay))
+                { payment += repay; break; }
+                else {
+                    System.out.print("输入的金额不合法！再次支付:");
+                    repay = sc.nextFloat();
+                    leagal= false;
+                 }
+
+
             }
             change = payment - cost;//change：找零  实付金额-应付金额
 
@@ -67,12 +82,12 @@ public class MoneyChangeSystem {
             oneYuan = integer - hundredYuan*100 - 50*fiftyYuan - 20*twentyYuan - 10*tenYuan - 5*fiveYuan;//oneYuan = 1
 
             //------------小数部分同上-----------
-            int index = (int) ( (change - integer) * 10);//index = (12346.6 - 12346) * 10 = 6
+            int index = (int) (change*10 - integer*10);//index = (12346.6 - 12346) * 10 = 6
             fiveJiao = index / 5;//fiveJiao = 1
             oneJiao = index - 5*fiveJiao;//oneJiao = 1
 
             //-----------输出，其实还可以在根据为'0'进行选择进行输出----------
-            String[] yuanAndJiao = {"¥100：","  ¥50：","  ¥20:","  ¥10：","  ¥5：","  ¥1：","  ¥0.5","  $0.1："};
+            String[] yuanAndJiao = {"¥100:","¥50:","¥20:","¥10:","¥5:","¥1:","¥[0.5]:","¥[0.1]:"};
 
             int[] cout = {hundredYuan,fiftyYuan,twentyYuan,tenYuan,fiveYuan,oneYuan,fiveJiao,oneJiao};
 
@@ -80,7 +95,7 @@ public class MoneyChangeSystem {
             for(int i = 0; i < 8;i++)
             {
                 if(cout[i]!=0)
-                    System.out.print(yuanAndJiao[i] + cout[i] );
+                    System.out.print(yuanAndJiao[i] + cout[i] + "  " );
             }
 
             System.out.println("\n");
