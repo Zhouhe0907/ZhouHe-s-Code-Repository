@@ -5,10 +5,13 @@
  *每一个不曾起舞的日子都是对生命的辜负
  */
 
-public class ElegantGetTime
+import java.util.Random;
+
+public class Test
 {
     static void getTime()
     {
+        //自写得到时间的代码
         long totalMiniSecond = System.currentTimeMillis() ;  //totalMiniSecond:总微秒
         long totalSecond = totalMiniSecond / 1000 ; //totalSecond:总秒
         long totalMinute = totalSecond / 60;       //totalMinute:总分钟
@@ -29,12 +32,14 @@ public class ElegantGetTime
 
         //------------将24小时制转化为12小时制，并美化小时的显示------------
         String  amPm;
+
         amPm = (currentHour>=5 && currentHour < 8) ? "早晨" : (currentHour>=8 && currentHour<12) ? "上午" :
                (currentHour>=12 && currentHour<14) ? "中午" : (currentHour>=14 && currentHour<18) ?"下午" :
                (currentHour == 18) ? "傍晚" : (currentHour>=19 && currentHour<=22) ? "晚上" :
                (currentHour>22 || currentHour<=2) ? "深夜" : "凌晨";
-        if(currentHour>= 13)  
-            currentHour -= 12;//转化成12小时制
+
+        if(currentHour>= 13)
+            currentHour -= 12;
 
 
         //------------得到当前日：currentDay------------------------------
@@ -80,10 +85,52 @@ public class ElegantGetTime
 
         //----------------输出时间格式----------------------
         System.out.println("现在是 " + currentYear + "年" + currentMonth + "月" + currentDay + "日 "
-                                    + lunarYearStar + lunarYearLand +"年 " +"星期"
-                                    + currentWeek +" " + amPm + " "
-                                    +currentHour + "点" + currentMinute + "分" + currentSecond + "秒"
-                                    + "\n\n每一个不曾起舞的日子都是对生命的辜负");
+                + lunarYearStar + lunarYearLand +"年 " +"星期"
+                + currentWeek +" " + amPm + " "
+                + currentHour + "点" + currentMinute + "分" + currentSecond + "秒" + "\n");
+        TheBeauty.printPoem();
     }
+
+
+    public static void main(String[] args) {
+            getTime();
+    }
+
+}
+
+class TheBeauty
+{
+    static void printPoem()
+    {
+        Random r = new Random();
+        int luck = r.nextInt(theBeauty.length);
+        System.out.println(theBeauty[luck]);
+    }
+
+
+     static String[] theBeauty = {
+            "诗酒社，水云乡。可堪醉墨几淋浪。\n画图恰似归家梦，千里河山寸许长。",//0
+            "每一个不曾起舞的日子都是对生命的辜负",//2
+            "无半点闲愁去处，问三生醉梦何如。",//3
+            "红泥小火炉，绿螘新醅酒。晚来天欲雪，能饮一杯无？",
+            "梦里不知身是客，一晌贪欢。",
+            "醉后不知天在水，满船清梦压星河。",
+            "愿你所有的努力都不白费，所想的都能如愿，所做的都能实现。\n愿有人待你如初，疼你入骨，愿深情总不会被辜负。",
+            "一个人只要知道去哪里，全世界都会给他让步。",//8
+            "你日渐平庸，甘于平庸，将继续平庸。",
+            "Be yourself,everyone else is already taken." +
+             "\n\t\t\t----Oscar Fingal O’Flahertie WillsWilde",
+             "半山腰总是挤的，你得去山顶看看",
+             "勤劳 大智慧 诚心有为",
+             "有感即通千江水有千山月，无机不被万里无云万里天",
+             "宝剑锋从磨砺出，梅花香自苦寒来",//索引13
+             "无限风光在顶峰！",
+             "午后是一日里正过到途中，是一日里希望接近尾声的等待。不耐和消沉相继而来，希望也是挣扎的希望。" +
+                     "\n它是闺阁里的苍凉暮年，心都要老了，做人却还像没开头似的。" +
+                     "想到这。心都要绞起来了，却又不能与人说，说也说不明的。\n" +
+                     "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t --扎西阿姆《当你途径我的绽放》",//索引15
+
+    };
+
 
 }
