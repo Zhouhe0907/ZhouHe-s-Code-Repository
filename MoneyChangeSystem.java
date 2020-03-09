@@ -1,8 +1,9 @@
+import java.util.Scanner;
 /*
  *@ZhouHe
- *和朱思名一起写代码的纪念
+ *纪念朱思名给的第一串代码
+ *
  */
-import java.util.Scanner;
 
 public class MoneyChangeSystem {
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class MoneyChangeSystem {
 
         int oneYuan , fiveYuan , tenYuan , twentyYuan , fiftyYuan ,hundredYuan,fiveJiao , oneJiao;
         float cost , change , payment , repay = 0;
-        //cost:应付金额   change:应找零   payment：已支付金额  repay：支付金额不够再次支付的金额
+        //cost:应付金额   change:应找零金额   payment：已支付金额  repay：支付金额不够再次支付的金额
         System.out.println("欢迎使用金正大超市自助找零系统" +
                 "\n-------------------------");//问候语
 
@@ -19,12 +20,12 @@ public class MoneyChangeSystem {
             System.out.print("请输入商品价格：");
             cost = sc.nextFloat();//获取应付金额
 
-            while(MoneyChangeSystem.LeaglOrNot(cost))//调用下方所写的【LeaglOrNot方法】判断输入的金额是否合法，不合法方法返回值为ture
+            while(MoneyChangeSystem.LeagalOrNot(cost))//调用下方所写的【LeaglOrNot方法】判断输入的金额是否合法，不合法方法返回值为ture
             {                                   // 判断为'true'则进行循环体内的操作，为false则跳过
                 System.out.print("价格输入不合法！请重新输入：");
                 float recost = sc.nextFloat();//再次从键盘获取数据
                 cost = recost; //cost=新获得的数据
-                if(!MoneyChangeSystem.LeaglOrNot(cost))//再次调用LeaglOrNot判断cost是否合法,合法的话方法返回值是【false】
+                if(!MoneyChangeSystem.LeagalOrNot(cost))//再次调用LeaglOrNot判断cost是否合法,合法的话方法返回值是【false】
                     //如果为false是不会进行if里面的操作的，所以又加了一个'！'，判断由false变成了true
                     break;                          //if（）语句判断为true，进行if里面的代码，触发break；跳出循环
                 //假如不合法LeaglOrNot方法返回的为false，跳过
@@ -33,12 +34,12 @@ public class MoneyChangeSystem {
             System.out.print("请输入顾客实付金额：");
             payment = sc.nextFloat();
 
-            while(MoneyChangeSystem.LeaglOrNot(payment))//这个步骤和上一步一样
+            while(MoneyChangeSystem.LeagalOrNot(payment))//这个步骤和上一步一样
             {
                 System.out.print("所付金额不合法！请重新输入：");
                 float repayment = sc.nextFloat();
                 cost = repayment;
-                if(!MoneyChangeSystem.LeaglOrNot(repayment))
+                if(!MoneyChangeSystem.LeagalOrNot(repayment))
                     break;
             }
 
@@ -48,7 +49,7 @@ public class MoneyChangeSystem {
             {
                 System.out.print("顾客支付金额不足！再多支付：");
                 repay = sc.nextFloat();
-                while (MoneyChangeSystem.LeaglOrNot(repay))
+                while (MoneyChangeSystem.LeagalOrNot(repay))
                 {
                     System.out.print("支付金额不合法！再次支付:");
                     repay = sc.nextFloat();
@@ -99,7 +100,7 @@ public class MoneyChangeSystem {
     }
 
     //这是判断入参是否符合规格的方法，考虑到实际情况，金额以元为单位所以只判断到小数点后一位，即'角'（忽略不常用的'分'）
-    static  boolean LeaglOrNot(float toBeJudged)//括号内必须为一个float类型的数值
+    static  boolean LeagalOrNot(float toBeJudged)//括号内必须为一个float类型的数值
     {
         //拿12.334举例
         if( toBeJudged < 0 )  //如果入参小于'0'，那么返回true，而程序中的while（）括号中条件判断为真，执行while循环里的代码
