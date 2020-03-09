@@ -69,7 +69,7 @@ int luckyBoy()//核心算法
         cout<<"-------------------------------------"<<endl;
         cout<<"最后幸存下来的是【"<<theLuckyBoysNum<<"】号玩家!Congradulations!"
             <<"\n\n无畏的勇士呐，要再来一局吗？ヽ(•̀ω•́ )ゝ"
-            <<"\n（1.Yes 2.No):";
+            <<"\n（1.Yes 2.No!):";
 
 
         cin>>yesOrNo;
