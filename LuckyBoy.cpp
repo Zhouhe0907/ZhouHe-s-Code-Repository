@@ -10,7 +10,7 @@ int main()
     luckyBoy();
 }
 
-void Tips()
+void Tips()//提示部分
 {
     cout<<"\n亲爱的勇士呐！欢迎来到幸存者游戏！(๑‾ ꇴ ‾๑)"
         <<"\n--------------------------------------"
@@ -19,7 +19,8 @@ void Tips()
         <<"\n报到不幸数字的玩家淘汰出局，由下一位玩家再次从'1'开始报数，直至j决胜出一名幸运玩家！\n";
 }
 
-int luckyBoy()
+
+int luckyBoy()//核心算法
 {
     bool replay = true;//用于判断玩家是否想重玩游戏（跳出while循环的判断条件）
     while(replay)
