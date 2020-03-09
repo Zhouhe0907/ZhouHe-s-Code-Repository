@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//------函数声明部分-----
 void luckyBoy();
 void Tips();
 bool leagalOrNot(int);
