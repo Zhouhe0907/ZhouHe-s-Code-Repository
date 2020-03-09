@@ -100,7 +100,7 @@ public class Test
 
 }
 
-//----------是这一段代码的让我感受到了编程的优雅----------
+//----------这一串代码在自己学到数据库后会完善的----------
 class TheBeauty
 {
     static void printPoem()
