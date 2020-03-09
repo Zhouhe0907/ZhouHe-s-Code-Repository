@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int luckyBoy();
+void luckyBoy();
 void Tips();
+bool leagalOrNot(int);
 
 int main()
 {
@@ -10,7 +11,7 @@ int main()
     luckyBoy();
 }
 
-void Tips()//提示部分
+void Tips()
 {
     cout<<"\n亲爱的勇士呐！欢迎来到幸存者游戏！(๑‾ ꇴ ‾๑)"
         <<"\n--------------------------------------"
@@ -19,8 +20,7 @@ void Tips()//提示部分
         <<"\n报到不幸数字的玩家淘汰出局，由下一位玩家再次从'1'开始报数，直至决胜出一名幸运玩家！\n";
 }
 
-
-int luckyBoy()//核心算法
+void luckyBoy()
 {
     bool replay = true;//用于判断玩家是否想重玩游戏（跳出while循环的判断条件）
     while(replay)
@@ -32,22 +32,37 @@ int luckyBoy()//核心算法
         cout<<"\n请输入玩家人数：";
         int num;
         cin>>num;  //用来记录人数
-        cout<<"请输入投票得出的不幸数字：";
+
+        cout<< ((num == 1) ? "一个人不就是又死又活了吗!？重来重来！ᕦ(ò_óˇ)ᕤ\n"
+                          : (num == 0) ? "没人怎么玩游戏啊喂！重来重来！!(((￣へ￣井)\n"
+                          : (num < 0) ? "负人是什么鬼啊！！重来重来！Ծ‸ Ծ \n"
+                          :"请输入投票得出的不幸数字：");
+
+        if(leagalOrNot(num))//输入不合法，退回
+            continue;
+
         int quit;
         cin>>quit;//quit：报出quit的玩家退出游戏
+        if(leagalOrNot(quit))
+            while (leagalOrNot(quit))
+            {
+                cout<<"这什么奇奇怪怪的数字？！再来：";
+                cin>>quit;
+            }
 
-        int player[num];
+
+        int player[num];//获取一个大小为输入num的数组
         for(int i = 0;i < num;i++)
-            player[i] = i+1;  //数组玩家获取编号，'1'号玩家即player[0]，如果玩家退出，所存内容清空为'0'
+            player[i] = i+1;  //数组玩家获取编号，'1'号玩家即player[0]，如果玩家淘汰，所存内容清空为'0'
 
         int theLuckyBoysNum = 0;//记录最后一名玩家的数字
 
         int peopleLeft = num ,count = 0;//记录剩余人数，count用于记录所报的数
         int peopleSNum = -1;//初始化数组下标
 
-        while(true)
+        while(true)//实现的核心代码
         {
-            peopleSNum++;  //下标增加
+            peopleSNum++;  //下标增加，即换转向下一个人的位置
             if(peopleSNum >= num)  //判断下标是否大于数组最大位置的索引，注意：num为用户输入游戏总人数，数组下标最大为num-1
             { peopleSNum -= (num); } //如果大于最大位置，那么索引位置从'0'开始
 
@@ -61,15 +76,15 @@ int luckyBoy()//核心算法
 
             if(count == quit)//判断此时count（报数）是否为退出数字
             { *(player+peopleSNum) = 0 ; count = 0 ; peopleLeft--;}//判断成功，清空此时索引位置下所存储的内容
-                                                                  //（eg:player[3]=4 --> player[3]=0）计数器归'0'
-                                                                  //剩余人数-1
+            //（eg:player[3]=4 --> player[3]=0）计数器归'0'
+            //剩余人数-1
 
         }
 
         cout<<"-------------------------------------"<<endl;
         cout<<"最后幸存下来的是【"<<theLuckyBoysNum<<"】号玩家!Congradulations!"
             <<"\n\n无畏的勇士呐，要再来一局吗？ヽ(•̀ω•́ )ゝ"
-            <<"\n（1.Yes 2.No!):";
+            <<"\n（1.Yes 2.No):";
 
 
         cin>>yesOrNo;
@@ -79,8 +94,14 @@ int luckyBoy()//核心算法
             cin>>yesOrNo;
         }
 
-        replay = (yesOrNo==1)? true : false;//若用户输入的yesOrNo为'1'，repay则为true，重新开始游戏，否则退出大循环
+        replay = yesOrNo == 1;//若用户输入的yesOrNo为'1'，repay则为true，重新开始游戏，否则退出大循环
         if(yesOrNo==2)
             cout<<"\n欢迎下次再玩！"<<endl;
     }
+
+}
+
+bool leagalOrNot(int a)//用来判断输入时是否合法
+{
+    return ( (a <= 1) );
 }
