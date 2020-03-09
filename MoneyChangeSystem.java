@@ -73,7 +73,7 @@ public class MoneyChangeSystem {
 
             //------------输出，其实还可以再根据是否为'0'进行选择性输出----------
             System.out.println("找零理论最合适方案 100元：" + hundredYuan + "  50元：" + fiftyYuan
-                    + "  20元：" + twentyYuan + "  10元：" +tenYuan + "  5元：" + fiveYuan
+                    + "  20元：" + twentyYuan + "  10元：" + tenYuan + "  5元：" + fiveYuan
                     + "  1元：" + oneYuan + "  5角：" + fiveJiao + "  1角：" + oneJiao + "\n");
         }
 
