@@ -4,6 +4,7 @@ import java.util.Scanner;
  *@ZhouHe
  *和朱思名一起写代码的纪念
  */
+
 public class MoneyChangeSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);   //从键盘获取内容的方式
@@ -46,19 +47,14 @@ public class MoneyChangeSystem {
             boolean leagal = true;
             while(payment < cost)
             {
-                if(leagal) {
-                    System.out.print("顾客支付金额不足！再多支付：");
+                System.out.print("顾客支付金额不足！再多支付：");
+                repay = sc.nextFloat();
+                while (MoneyChangeSystem.LeaglOrNot(repay))
+                {
+                    System.out.print("支付金额不合法！再次支付:");
                     repay = sc.nextFloat();
                 }
-
-                if(!MoneyChangeSystem.LeaglOrNot(repay))
-                { payment += repay; break; }
-                else {
-                    System.out.print("输入的金额不合法！再次支付:");
-                    repay = sc.nextFloat();
-                    leagal= false;
-                 }
-
+                payment += repay;
 
             }
             change = payment - cost;//change：找零  实付金额-应付金额
@@ -91,7 +87,7 @@ public class MoneyChangeSystem {
 
             int[] cout = {hundredYuan,fiftyYuan,twentyYuan,tenYuan,fiveYuan,oneYuan,fiveJiao,oneJiao};
 
-            System.out.print("找零理论最合适方案 ");
+            System.out.print("推荐找零方案 ");
             for(int i = 0; i < 8;i++)
             {
                 if(cout[i]!=0)
