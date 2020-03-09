@@ -5,12 +5,14 @@ void luckyBoy();
 void Tips();
 bool leagalOrNot(int);
 
+//------主函数部分------
 int main()
 {
     Tips();
     luckyBoy();
 }
 
+//-------提示语部分-------
 void Tips()
 {
     cout<<"\n亲爱的勇士呐！欢迎来到幸存者游戏！(๑‾ ꇴ ‾๑)"
@@ -20,6 +22,7 @@ void Tips()
         <<"\n报到不幸数字的玩家淘汰出局，由下一位玩家再次从'1'开始报数，直至决胜出一名幸运玩家！\n";
 }
 
+//-------游戏部分------
 void luckyBoy()
 {
     bool replay = true;//用于判断玩家是否想重玩游戏（跳出while循环的判断条件）
