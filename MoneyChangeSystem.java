@@ -1,9 +1,10 @@
-import java.util.Scanner;
 /*
  *@ZhouHe
  *纪念朱思名给的第一串代码
- *
+ *梦里不知身是客，一晌贪欢
  */
+
+import java.util.Scanner;
 
 public class MoneyChangeSystem {
     public static void main(String[] args) {
@@ -24,10 +25,9 @@ public class MoneyChangeSystem {
             {                                   // 判断为'true'则进行循环体内的操作，为false则跳过
                 System.out.print("价格输入不合法！请重新输入：");
                 float recost = sc.nextFloat();//再次从键盘获取数据
-                cost = recost; //cost=新获得的数据
-                if(!MoneyChangeSystem.LeagalOrNot(cost))//再次调用LeaglOrNot判断cost是否合法,合法的话方法返回值是【false】
-                    //如果为false是不会进行if里面的操作的，所以又加了一个'！'，判断由false变成了true
-                    break;                          //if（）语句判断为true，进行if里面的代码，触发break；跳出循环
+                if(!MoneyChangeSystem.LeagalOrNot(recost))//再次调用LeaglOrNot判断cost是否合法,合法的话方法返回值是【false】
+                                            //如果为false是不会进行if里面的操作的，所以又加了一个'！'，判断由false变成了true
+                { cost = recost;  break; }  //if（）语句判断为true，进行if里面的代码，触发break；跳出循环
                 //假如不合法LeaglOrNot方法返回的为false，跳过
             }
 
@@ -38,9 +38,9 @@ public class MoneyChangeSystem {
             {
                 System.out.print("所付金额不合法！请重新输入：");
                 float repayment = sc.nextFloat();
-                cost = repayment;
+
                 if(!MoneyChangeSystem.LeagalOrNot(repayment))
-                    break;
+                {payment = repayment;  break;}
             }
 
             //判断所付金额是否大于应付金额，当实付金额大于等于应付金额时跳出循环，一开始就大于等于就忽略此循环
@@ -87,14 +87,24 @@ public class MoneyChangeSystem {
 
             int[] cout = {hundredYuan,fiftyYuan,twentyYuan,tenYuan,fiveYuan,oneYuan,fiveJiao,oneJiao};
 
-            System.out.print("推荐找零方案 ");
-            for(int i = 0; i < 8;i++)
+            boolean printFlag = false;
+            for(int a = 0;a < cout.length;a++)
             {
-                if(cout[i]!=0)
-                    System.out.print(yuanAndJiao[i] + cout[i] + "  " );
+                if( cout[a] != 0)
+                    printFlag = true;break;
             }
 
-            System.out.println("\n");
+            if(printFlag) {
+                System.out.print("推荐找零方案 ");
+                for (int i = 0; i < 8; i++) {
+                    if (cout[i] != 0)
+                        System.out.print(yuanAndJiao[i] + cout[i] + "  ");
+                }
+                System.out.println("\n");
+            }
+            else
+                System.out.println("无需找零！\n");
+
         }
 
     }
