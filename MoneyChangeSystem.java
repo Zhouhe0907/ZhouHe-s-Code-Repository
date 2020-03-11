@@ -44,7 +44,6 @@ public class MoneyChangeSystem {
             }
 
             //判断所付金额是否大于应付金额，当实付金额大于等于应付金额时跳出循环，一开始就大于等于就忽略此循环
-            boolean leagal = true;
             while(payment < cost)
             {
                 System.out.print("顾客支付金额不足！再多支付：");
