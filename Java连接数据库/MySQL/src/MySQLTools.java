@@ -9,9 +9,10 @@ public class MySQLTools
     static final String DATABASENAME = "Hero"; //Data-base's name
     static final String USERNAME = "root";//user's name
     static final String PASSWARD = "hao1018113";//user's password
+    static String tableName = "英雄信息";//table's name in date-base
 
     static final String DB_URL = "jdbc:mysql://localhost:3306/"+ DATABASENAME +"?useUnicode=true&characterEncoding=UTF-8";//table's url
-    static String tableName = "英雄信息";//table's name in date-base
+  
 
     /**
      * This method is to get connected with data bank
