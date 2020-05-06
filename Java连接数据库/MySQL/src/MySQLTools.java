@@ -9,13 +9,13 @@ public class MySQLTools
     static final String DATABASENAME = "Hero"; //Data-base's name
     static final String USERNAME = "root";//user's name
     static final String PASSWARD = "hao1018113";//user's password
-    static String tableName = "英雄信息";//table's name in date-base
+    static String tableName = "英雄信息";//table's name in Date-base
 
     static final String DB_URL = "jdbc:mysql://localhost:3306/"+ DATABASENAME +"?useUnicode=true&characterEncoding=UTF-8";//table's url
   
 
     /**
-     * This method is to get connected with data bank
+     * This method is to get connected with Date-base
      */
     public static void getConnection()
     {
@@ -33,7 +33,7 @@ public class MySQLTools
     }
 
     /**
-     * This method is to close the connection between data bank and Java
+     * This method is to close the connection between Date-base and Java
      */
     public static void closeConnection()
     {
@@ -47,7 +47,7 @@ public class MySQLTools
     }
 
     /**
-     * This method is to query data from data bank and then output data queried on the console
+     * This method is to query data from Date-base and then output data queried on the console
      */
     public static void referFromDataBank()
     {
@@ -100,7 +100,7 @@ public class MySQLTools
     }
 
     /**
-     * This method is to create a new table if it not exsisted
+     * This method is to create a new table in Date-base if it not exsisted
      */
     public static void createTable()
     {
@@ -245,7 +245,5 @@ public class MySQLTools
             }
         }
     }
-
-
 
 }
