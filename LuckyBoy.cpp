@@ -100,7 +100,6 @@ int theLastOne(int n, int q)
             if(count == q)
             {
                 *(arr+i) = 0;
-
                 count = 0;
                 m++;
             }
