@@ -72,7 +72,7 @@ bool leagalOrNot(int a)//return true the input is legal,
     return a <= 1;
 }
 
-int theLastOne(int n, int q)
+int theLastOne(int n, int q)//return the last people's number
 {
     int arr[n];
 
