@@ -89,7 +89,7 @@ int theLastOne(int n, int q)//return the last people's number
     {
         i++;
 
-        if(*(arr+i) != 0) // 0 is the flag of peop;e quited
+        if(*(arr+i) != 0) // 0 is the flag of people quited
         {
             count++;
 
