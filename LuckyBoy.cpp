@@ -67,9 +67,9 @@ void luckyBoy()
 
 }
 //
-bool leagalOrNot(int a)//用来判断输入时是否合法
+bool leagalOrNot(int a)//return true the input is legal,
 {
-    return ( (a <= 1) );
+    return a <= 1;
 }
 
 int theLastOne(int n, int q)
@@ -79,19 +79,19 @@ int theLastOne(int n, int q)
     for(int j = 0;j < n;j++)
         arr[j] = j + 1;
 
-    int m = 0;
+    int m = 0;//the number of people quited
 
-    int count = 0;
+    int count = 0; 
 
-    int i = -1;
+    int i = -1;//the index of the array 'arr[]'
 
     while(true)
     {
         i++;
 
-        if(*(arr+i) != 0) //当此数不为0时判断
+        if(*(arr+i) != 0) // 0 is the flag of peop;e quited
         {
-            count++; //报数+1
+            count++;
 
             if(m == n - 1 && *(arr+i) != 0)
                 return *(arr+i);
@@ -104,7 +104,7 @@ int theLastOne(int n, int q)
             }
         }
 
-        if(i == n - 1)
+        if(i == n - 1)//Reset the index 'n' to 0 if the 'for' loop reaches the end of the array
             i = -1;
     }
 }
