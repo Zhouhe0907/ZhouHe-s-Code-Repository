@@ -96,7 +96,6 @@ int theLastOne(int n, int q)
             if(m == n - 1 && *(arr+i) != 0)
                 return *(arr+i);
 
-
             if(count == q)
             {
                 *(arr+i) = 0;
